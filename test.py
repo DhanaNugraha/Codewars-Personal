@@ -1,2 +1,2 @@
-s = "welcome "
-print(len(s))
+s = "a"
+print(ord(s)-96)
