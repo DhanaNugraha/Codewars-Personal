@@ -1,2 +1,3 @@
-s = "a"
-print(ord(s)-96)
+s = "A"
+print(ord(s))
+print(chr(ord(s)))
