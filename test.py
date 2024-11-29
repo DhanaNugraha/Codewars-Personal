@@ -1,6 +1,14 @@
-s = "A"
-print(ord(s))
-print(chr(ord(s)))
+s = "is2 Thi1s T4est 3a"
 
-counter = {}
+s = s.split()
+
+def numFinder(e):
+    for str in e:
+        if str.isnumeric():
+            return str
+
+print(s)
+s.sort(key = numFinder)
+print(s)
+
 
