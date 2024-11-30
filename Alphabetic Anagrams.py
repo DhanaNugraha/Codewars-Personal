@@ -1,71 +1,65 @@
 # make a tree for input if combination is found, return the rank
 
-word = 'ABAB'
+word = 'BOOKKEEPER'
 # try ABB
 
 def list_position(word):
+    import math
     letterList = sorted(set(word))
-    wordLength = len(word)
+    word = list(word)
+    rank = 0
+    print(sorted(word))
+
+    # Calc the amount of duplicates for each letter
     letterAmount = {}
 
-    for letter in letterList:   
-        letterAmount[letter] = word.count(letter)
-
-    print(letterList, wordLength, letterAmount)
-
-    stack = []
-    found = False
-    
-    def decisionTree(startLetter, nextLetterIndex, nextLetterLen, curStackLength, rank):
-        if found == True:
-            return rank
+    for i in range(0, len(word)): 
+        if word[i] in letterAmount:
+            letterAmount[word[i]] += 1
         
-        elif curStackLength == wordLength:
-            curWord = ''.join(stack)
-            rank += 1
-            
-            if curWord == word:
-                found == True
-        
-            return rank
-
         else:
-            nextLetter = letterList[nextLetterIndex]
+            letterAmount[word[i]] = 1
+    
+    print(letterAmount)
 
-            if stack == []:
-                stack.append(startLetter)
+    # traverse check 1 by 1
+    for i in range(len(word)):
+        print(i)
+        # Decision tree but cutting branch if letter not appropriate
+        for checkLetter in letterList:
+            if letterAmount[checkLetter] == 0:
+                continue
 
-                decisionTree(startLetter, nextLetterIndex,nextLetterLen, curStackLength + 1, rank)
+            curWord = word[i]
 
-                stack.pop()
-                
+            if curWord == checkLetter:
+                letterAmount[curWord] -= 1
+                print(checkLetter, letterAmount, 'correct')
+                break
             
-            if nextLetterLen == 0 and nextLetter == startLetter:
-                nextLetterLen += 1
+            # calc how much branch we skipped
+            else: 
+                # temp letter amount for skipped branch with the head check letter
+                print(letterAmount, 'this is letter amount', i)
+                tempLetterAmount = letterAmount.copy()
+                tempLetterAmount[checkLetter] -= 1
 
-            if nextLetterLen < letterAmount[nextLetter]:
-                stack.append(nextLetter)
-                nextLetterLen += 1
+                print('this is temp letter amount', tempLetterAmount)
 
-                decisionTree(startLetter, nextLetterIndex, nextLetterLen, curStackLength + 1, rank)
-                print(stack)
-                stack.pop()
+                n = len(word) - 1 - i
 
-            if nextLetterLen == letterAmount[nextLetter]:
-                for i in range(len(letterList)):
-                    if stack.count(letterList[i]) < letterAmount[letterList[i]]:
-                        nextLetterIndex = i
-                        nextLetterLen = 0
-                        print('im here', stack, nextLetterIndex)
+                divider = 1
 
-                print(nextLetterIndex, 'this is next letter')
+                for duplicate in list(tempLetterAmount.values()):
+                    if duplicate > 1:
+                        divider *= math.factorial(duplicate)
 
-                decisionTree(startLetter, nextLetterIndex, nextLetterLen, curStackLength, rank)
+                rank += math.factorial(n) / divider
 
-    while found == False:
-        for letter in letterList:
-            rank = decisionTree(letter, 0, 0, 0, 0)
+                print( rank , 'this is rank')
+    
+    rank += 1
 
-    return rank
+    return int(rank)
 
 print(list_position(word))
