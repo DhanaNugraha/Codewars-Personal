@@ -1,6 +1,6 @@
 # make a tree for input if combination is found, return the rank
 
-word = 'BOOKKEEPER'
+word = 'IMMUNOELECTROPHORETICALLY'
 # try ABB
 
 def list_position(word):
@@ -54,7 +54,8 @@ def list_position(word):
                     if duplicate > 1:
                         divider *= math.factorial(duplicate)
 
-                rank += math.factorial(n) / divider
+                # Must be // not / to floor division as integer
+                rank += math.factorial(n) // divider
 
                 print( rank , 'this is rank')
     

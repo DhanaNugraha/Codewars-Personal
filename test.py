@@ -99,14 +99,55 @@
 #             rank = decisionTree(letter, 0, 0, 0, 0)
 
 
+# import math
+
+# a = {'a':1, 'b':2, 'c':3}
+# n = 1
+
+# for duplicate in list(a.values()):
+#     n *= math.factorial(duplicate)
+
+# z = n * 2
+
+# print(n, z)
+
+word = 'IMMUNOELECTROPHORETICALLY'
+
+print(word)
+
+
+wordAmount = {'I': 2, 'M': 2, 'U': 1, 'N': 1, 'O': 3, 'E': 3, 'L': 3, 'C': 2, 'T': 2, 'R': 2, 'P': 1, 'H': 1, 'A': 1, 'Y': 1} 
+
+letterList = sorted(set(word))
+print(letterList)
+print(wordAmount)
+print(len(word))
+print(sum(wordAmount.values()))
+
 import math
 
-a = {'a':1, 'b':2, 'c':3}
-n = 1
+rank = 0
+divider = 1
 
-for duplicate in list(a.values()):
-    n *= math.factorial(duplicate)
+n = len(word) -1 - 0
 
-z = n * 2
+wordAmount['C'] -= 1
 
-print(n, z)
+for duplicate in list(wordAmount.values()):
+    if duplicate > 1:
+        divider *= math.factorial(duplicate)
+        print(duplicate, divider)
+
+print(math.factorial(n))
+
+rank += math.factorial(n) / divider
+
+
+print(int(rank))
+
+test = 620448401733239439360000 / 3456
+
+print('this is test', int(test))
+# 620448401733239439360000
+
+# 620448401733239439360000
