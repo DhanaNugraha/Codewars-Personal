@@ -111,43 +111,63 @@
 
 # print(n, z)
 
-word = 'IMMUNOELECTROPHORETICALLY'
+# word = 'IMMUNOELECTROPHORETICALLY'
 
-print(word)
-
-
-wordAmount = {'I': 2, 'M': 2, 'U': 1, 'N': 1, 'O': 3, 'E': 3, 'L': 3, 'C': 2, 'T': 2, 'R': 2, 'P': 1, 'H': 1, 'A': 1, 'Y': 1} 
-
-letterList = sorted(set(word))
-print(letterList)
-print(wordAmount)
-print(len(word))
-print(sum(wordAmount.values()))
-
-import math
-
-rank = 0
-divider = 1
-
-n = len(word) -1 - 0
-
-wordAmount['C'] -= 1
-
-for duplicate in list(wordAmount.values()):
-    if duplicate > 1:
-        divider *= math.factorial(duplicate)
-        print(duplicate, divider)
-
-print(math.factorial(n))
-
-rank += math.factorial(n) / divider
+# print(word)
 
 
-print(int(rank))
+# wordAmount = {'I': 2, 'M': 2, 'U': 1, 'N': 1, 'O': 3, 'E': 3, 'L': 3, 'C': 2, 'T': 2, 'R': 2, 'P': 1, 'H': 1, 'A': 1, 'Y': 1} 
 
-test = 620448401733239439360000 / 3456
+# letterList = sorted(set(word))
+# print(letterList)
+# print(wordAmount)
+# print(len(word))
+# print(sum(wordAmount.values()))
 
-print('this is test', int(test))
+# import math
+
+# rank = 0
+# divider = 1
+
+# n = len(word) -1 - 0
+
+# wordAmount['C'] -= 1
+
+# for duplicate in list(wordAmount.values()):
+#     if duplicate > 1:
+#         divider *= math.factorial(duplicate)
+#         print(duplicate, divider)
+
+# print(math.factorial(n))
+
+# rank += math.factorial(n) / divider
+
+
+# print(int(rank))
+
+# test = 620448401733239439360000 / 3456
+
+# print('this is test', int(test))
 # 620448401733239439360000
 
 # 620448401733239439360000
+
+a = {4: '2', 3:'28 18', 1: '17'}
+
+output = ' '.join(a.values())
+
+print(output)
+
+sortedKey= sorted(a.keys())
+
+valueList = [a[i] for i in sortedKey]
+
+output = ' '.join(valueList)
+
+print(output)
+
+# a = 28
+
+# z = sum([int(i) for i in str(a)])
+
+# print(z)
