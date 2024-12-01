@@ -152,22 +152,26 @@
 
 # 620448401733239439360000
 
-a = {4: '2', 3:'28 18', 1: '17'}
+# a = {4: '2', 3:'28 18', 1: '17'}
 
-output = ' '.join(a.values())
+# output = ' '.join(a.values())
 
-print(output)
+# print(output)
 
-sortedKey= sorted(a.keys())
+# sortedKey= sorted(a.keys())
 
-valueList = [a[i] for i in sortedKey]
+# valueList = [a[i] for i in sortedKey]
 
-output = ' '.join(valueList)
+# output = ' '.join(valueList)
 
-print(output)
+# print(output)
 
 # a = 28
 
 # z = sum([int(i) for i in str(a)])
 
 # print(z)
+
+strng = "56 65 74 100 99 68 86 180 90"
+
+print(strng.split(' '))
